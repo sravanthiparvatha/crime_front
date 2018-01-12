@@ -9,6 +9,7 @@ class App extends Component {
     return (
       <div className="container">
         
+        
         <section>				
             <div id="container_demo" >
                 
@@ -21,7 +22,7 @@ class App extends Component {
                     </div>
 
                     <div id="register" className="animate form">
-                        <Registerform>
+                        <Registerform handleRegister={this.handleRegister}>
                             </Registerform>
                     </div>
         

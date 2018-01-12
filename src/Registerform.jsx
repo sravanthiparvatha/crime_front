@@ -1,9 +1,26 @@
 import React from 'react';
 class Registerform extends React.Component{
+    constructor(props)
+    {
+        super(props);
+        this.state={
+            username:"",
+            emailR:"",
+            pwdR:"",
+           cpwdR:"",
+        };
+        this.handleRegister=this.handleRegister.bind(this);
+
+    }
+    handleRegister()
+        {
+          
+            this.props.handleRegister(this.state.username,this.state.emailR,this.state.pwdR,this.state.cpwdR);
+        }
     render()
     {
-        return( <form   autocomplete="on"> 
-        <h1> Sign up </h1> 
+        return( <form   autocomplete="on" onSubmit="handleRegister"> 
+        <h1> Register </h1> 
         <p> 
             <label for="usernamesignup" className="uname" >Your username</label>
             <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />

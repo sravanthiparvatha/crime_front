@@ -10,19 +10,16 @@ import Home from './Home';
 
 import logo from './logo.svg';
 import Loginform from './Loginform';
-import RegCrime from './RegCrime';
 
 
 
-class App extends Component {
+class Home1 extends Component {
  
   render() {
     return (
      <div>
-  <Route path="/" exact component={Home}/>
-      <Route path="/Register" exact  component={Registerform} />
-      <Route path="/Login" exact  component={Loginform} />
-      <Route path="/RegCrime" exact  component={RegCrime} />
+  <Route path=""  component={Home}/>
+      
     </div>
     );
   }

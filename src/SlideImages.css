@@ -1,0 +1,106 @@
+.carousel-inner img {
+   /* make all photos black and white */ 
+   
+   width:  100%;
+ height: 50%;
+  
+   background-repeat:   no-repeat;
+   background-size:     cover;
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+} .jumbotron{
+    width:50%;
+    height:50%;
+
+    }footer .glyphicon {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #f4511e;
+    }
+
+
+
+
+
+
+
+
+
+
+.logo-small {
+    color: #f4511e;
+    font-size: 50px;
+}
+.logo {
+    color: #f4511e;
+    font-size: 200px;
+}
+.carousel-inner img {
+    
+    width: 100%; /* Set width to 100% */
+    height: 50%;
+    margin: auto;
+}
+
+.thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+}
+.thumbnail img {
+    width: 100%;
+    height: 50%;
+    margin-bottom: 10px;
+}
+
+
+.panel {
+    border: 1px solid #f41e3b; 
+    border-radius:0 !important;
+    transition: box-shadow 0.5s;
+}
+.panel:hover {
+    box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+}
+
+
+.panel-footer {
+    background-color: white !important;
+}
+.panel-footer h3 {
+    font-size: 32px;
+}
+.panel-footer h4 {
+    color: #aaa;
+    font-size: 14px;
+}
+.panel-footer .btn {
+    margin: 15px 0;
+    background-color: #f41e30;
+    color: #fff;
+}
+.navbar {
+    margin-bottom: 0;
+    background-color: #f41e1e;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+ 
+

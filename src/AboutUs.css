@@ -1,0 +1,10 @@
+header, footer {
+    padding: 1em;
+    color: rgb(197, 47, 27);
+    background-color: rgb(197, 47, 27);
+    clear: left;
+    text-align: center;
+}
+#{
+    color:  rgb(221, 212, 211);
+}

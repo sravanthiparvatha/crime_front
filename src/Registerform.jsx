@@ -1,5 +1,7 @@
 import React from 'react';
 import request from 'superagent';
+import './RegistrationForm.css';
+import { Link } from 'react-router-dom';
 class Registerform extends React.Component{
    
         constructor(props) {
@@ -32,7 +34,7 @@ class Registerform extends React.Component{
             if (password === confirmPassword) {
     
                 request
-                    .post("http://localhost:9000/login")
+                    .post("http://localhost:9000/signup")
                     .send({ name: name, email: email, password: password })
                     .then(
                     (response) => {
@@ -113,38 +115,55 @@ class Registerform extends React.Component{
                                     <br/>
                                     <br/>
                                     <br/>
-                                        <h1>SIGN UP</h1>
+                                        <h1><u>SIGN UP</u></h1><br></br>
                                         <div className="login-agileits-top">
                                             <form autoComplete="off" onSubmit={this.handleSubmit}>
-                                                <p>User Name </p>
-                                                <input type="text"
+                                            <p>
+                                                User Name &emsp;&emsp;&emsp; &nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <div class="inner-addon left-addon">
+    <i className="glyphicon glyphicon-user"></i>
+  
+                                                    <input type="text"
                                                     className="name"
                                                     id="name"
                                                     pattern="^[A-Za-z0-9_.-@]*$"
                                                     maxLength="12"
                                                     autoFocus
+                                                    
                                                     placeholder="Enter username"
                                                     onChange={this.handleNameChange}
                                                     value={this.state.name} required />
-                                                <p>email id </p>
+                                                   
+</div>
+
+                                               
+                                                    </p>
+
+                                                    <p>
+                                                Email id<br/>
+
                                                 <input type="email"
                                                     className="email"
                                                     id="email"
                                                     autoFocus
                                                     placeholder="Enter email id"
                                                     onChange={this.handleEmailChange}
-                                                    value={this.state.email} required />
-                                                <p>Password</p>
+                                                    value={this.state.email} required /><br/>
+                                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                                    </p>
+                                                Password <div class="inner-addon left-addon">
+                                                <i className="glyphicon glyphicon-lock"></i>
                                                 <input type="password"
                                                     className="password"
                                                     id="password"
                                                     required pattern="^[A-Za-z0-9_.-@]*$"
-                                                    required minLength="6" maxLength="10"
+                                                   required minLength="6" maxLength="10"
                                                     autoFocus
                                                     placeholder="Enter password"
                                                     onChange={this.handlePasswordChange}
                                                     value={this.state.password} />
-                                                <p>Confirm Password</p>
+                                                   </div> <br/>
+                                                <p>Confirm Password<br/>
                                                 <input type="password"
                                                     className="confirmPassword"
                                                     id="confirmPassword"
@@ -154,15 +173,28 @@ class Registerform extends React.Component{
                                                     placeholder="Re-enter password"
                                                     onChange={this.handleConfirmPasswordChange}
                                                     value={this.state.confirmPassword} />
+                                                     <br/>
+                                                      
+                                                    <br/>
                                                 <label className="anim">
-                                                    <input type="checkbox" className="checkbox" />
-                                                    <span> Remember me ?</span>
-                                                </label>
-                                                <input type="submit" value="Sign up" />
+                                                
+                                            <input type = "checkbox"/>&emsp;
+                                            Remember me?
+                                                   
+                                                </label>  &emsp; 
+                                                <br>
+                                                </br>
+                                                <br></br>
+                                                &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;
+                                               <button> <i class="glyphicon glyphicon-ok"></i>SIGNUP</button>
+                                                
+                                                </p>
                                             </form>
+                                            
                                         </div>
                                         <div className="login-agileits-bottom wthree">
-                                            <h6><a href="#">Already a user? Login</a></h6>
+                                        <h6>Already a user?&emsp; &nbsp;
+                                        <Link to='/Login' >  Login</Link></h6>
                                         </div>
                                     </div>
                                 </div>

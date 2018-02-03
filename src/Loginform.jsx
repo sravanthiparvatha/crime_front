@@ -1,30 +1,102 @@
-import React from 'react';
-class Loginform extends React.Component{
-    render()
-    {
-        return( 
-            <form   autoComplete="on"> 
-                            <h1>Log in</h1> 
-                            <p> 
-                                <label htmlFor="username" className="uname" > Your email or username </label>
-                                <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
-                            </p>
-                            <p> 
-                                <label htmlFor="password" className="youpasswd"> Your password </label>
-                                <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
-                            </p>
-                            <p className="keeplogin"> 
-              <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
-              <label htmlFor="loginkeeping">Keep me logged in</label>
-            </p>
-                            
-                            <p className="change_link">
-              Not a member yet ?
-              <a href="#toregister" className="to_register">Join us</a>
-            </p>
-                        </form>
-        );
+import React, { Component } from 'react';
+import './RegistrationForm.css';
 
-    }
+import request from 'superagent';
+
+
+class Loginform extends React.Component {
+	 constructor(props) {
+		 super(props);
+
+		 this.state ={
+			 email:"",
+			 password:"",
+		 };
+		 this.handleSubmit=this.handleSubmit.bind(this);
+		 this.handleEmailChange=this.handleEmailChange.bind(this);
+		 this.handlePasswordChange=this.handlePasswordChange.bind(this);
+	 }
+
+	 handleSubmit(event) {
+
+		 event.preventDefault();
+
+		 this.setState({ value: event.target.value });
+
+		 var email = document.getElementById('email').value;
+		 var password = document.getElementById('password').value;
+
+		 request
+				.post("http://10.10.200.21:9000/login")
+				.send({ email: email, password: password })
+				.then(
+				(response) => {
+					// response.body will be the returned data from your play app, which is an array of objects
+					// I kept the data as object with "place" as the key, and [lat,longs] as value.
+					// following code converts array of objects into the format which my component is accepting.
+					console.log("response is ok");
+				});
+		     
+	 }
+
+	 handleEmailChange(event) {
+		this.setState({
+			email: event.target.value,
+
+		});
+
+	}
+hhh
+		handlePasswordChange(event) {
+			this.setState({
+				password: event.target.value,
+	
+			});
+	
+	}
+	render() {
+		return (
+			<div id="login">
+             
+	           <div className="container">	
+		        <div className="login-w3l">	
+			     <div className="login-form">	
+				 <h1 className="wthree">LOGIN</h1>	
+				  <form  className="agile_form" onSubmit={this.handleSubmit}>
+		            <div className="w3ls-name1">
+					 <label className="header">Email</label><br/>
+					 <input placeholder="email@example.com" 
+							id="email" 
+							type="email" 
+							required=""
+							onChange={this.handleEmailChange}
+							value={this.state.email}/>
+					</div>
+                    <br/>
+				    <div className="w3ls-name1">
+					 <label className="header">Password</label><br/>	
+					 <input placeholder="password" 
+							id="password" 
+							type="password" 
+							required=""
+							onChange={this.handlePasswordChange}
+							value={this.state.password}/>
+				     </div>	<br/>
+                     <button> <i class="glyphicon glyphicon-ok"></i>SUBMIT</button>
+					</form>
+			     </div>
+		        </div>	
+			    <div className="login-w3l-bg">
+		        </div>
+		        <div className="clearfix"></div>	
+	           </div> 
+			   	
+	</div>
+	        
+			
+		
+		);
+	}
 }
+
 export default Loginform;

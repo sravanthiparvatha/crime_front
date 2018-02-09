@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-
+//import './Map1';
 class RegCrime extends React.Component {
  render()
      {
@@ -155,9 +155,9 @@ class RegCrime extends React.Component {
              <tr>
              <td> CRIMINAL GENDER</td>
              <td>
-             Male <input type="radio" name="Gender" value="Male" />
-             Female <input type="radio" name="Gender" value="Female" />
-             Others <input type="radio" name="Gender" value="Other" />
+             Male <input type="radio" name="Gender1" value="Male" />
+             Female <input type="radio" name="Gender1" value="Female" />
+             Others <input type="radio" name="Gender1" value="Other" />
              </td>
              </tr>
               
@@ -171,7 +171,7 @@ class RegCrime extends React.Component {
              <tr>
              <td>CITY</td>
              <td><input type="text" name="City" maxlength="30" />
-             (max 30 characters a-z and A-Z)
+           
              </td>
              </tr>
              <br/>
@@ -182,7 +182,7 @@ class RegCrime extends React.Component {
              <tr>
              <td>STATE</td>
              <td><input type="text" name="State" maxlength="30" />
-             (max 30 characters a-z and A-Z)
+       
              </td>
              </tr>
               
@@ -195,8 +195,9 @@ class RegCrime extends React.Component {
              <tr>
              <td></td>
 
-             <td><button > <i class="glyphicon glyphicon-ok"></i>Submit</button></td>
+             <td><button className="btn btn-ok" > <i class="glyphicon glyphicon-ok"></i>Submit</button></td>
              </tr>
+       
              </table>
              </div>
          );

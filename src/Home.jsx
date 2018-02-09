@@ -9,6 +9,7 @@ import Explore from './Explore';
 //import { Router,Route } from "react-router";
 //import logo from './logo.svg';
 //import Loginform from './Loginform';
+import Map1 from './Map1';
 
 
 
@@ -27,6 +28,7 @@ class Home extends Component {
               <br/><br/><br/>
                 <Explore/>
                     <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>
+                    <Map1/>
               <AboutUs/>
             </div>  
         </section>

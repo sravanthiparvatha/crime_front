@@ -9,7 +9,7 @@ import Explore from './Explore';
 //import { Router,Route } from "react-router";
 //import logo from './logo.svg';
 //import Loginform from './Loginform';
-//import Map1 from './Map1';
+import Map from './Map';
 
 
 

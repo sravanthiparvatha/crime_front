@@ -7,6 +7,8 @@ import SlideImages from './SlideImages';
 import Explore from './Explore';
 import { Route } from 'react-router-dom';
 import Home from './Home';
+import CampMapContainer from './CampMapContainer';
+import Map from './Map';
 
 import logo from './logo.svg';
 import Loginform from './Loginform';
@@ -22,10 +24,13 @@ class App extends Component {
   <Route path="/" exact component={Home}/>
       <Route path="/Register" exact  component={Registerform} />
       <Route path="/Login" exact  component={Loginform} />
-      <Route path="/RegCrime" exact  component={RegCrime} />
+      <Route path="/MapContainer" exact  component={RegCrime} />
     </div>
     );
   }
 }
 
 export default App;
+
+
+

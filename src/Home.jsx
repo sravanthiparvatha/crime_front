@@ -28,7 +28,7 @@ class Home extends Component {
               <br/><br/><br/>
                 <Explore/>
                     <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>    <br/>
-                  
+                    <div id="mapid"></div>
               <AboutUs/>
             </div>  
         </section>

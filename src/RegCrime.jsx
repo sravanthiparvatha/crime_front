@@ -6,6 +6,7 @@ import React, { Component } from 'react';
 import CampMapContainer from './CampMapContainer';
 //import Map from './Map';
 //import React from 'react';
+import request from 'superagent';
 import ReactDOM from 'react-dom';
 import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
  
@@ -17,6 +18,155 @@ let coords = {
  
 const params = {v: '3.exp', key: 'AIzaSyC9tvO2YPEmjQcNKGWyrV37vYRU7hdKlbM'};
 class RegCrime extends React.Component {
+   
+   
+    constructor(props) {
+        super(props);
+
+        this.state = {
+           day:"",
+           mon:"",
+           year:"",
+           type:"",
+           gender:"",
+           gender1:"",
+           address:"",
+           city:"",
+           state:"",
+           lat:"",
+           lng:"",
+           country:"",
+        };
+       this.handleDayChange=this.handleDayChange.bind(this);
+       this.handleMonthChange=this.handleMonthChange.bind(this);
+       this.handleYearChange=this.handleYearChange.bind(this);
+       this.handleTypeChange=this.handleTypeChange.bind(this);
+       this.handleVictimChange=this.handleVictimChange.bind(this);
+       this.handleCriminalChange=this.handleCriminalChange.bind(this);
+       this.handleAddressChange=this.handleAddressChange.bind(this);
+       this.handleCityChange=this.handleCityChange.bind(this);
+       this.handleStateChange=this.handleStateChange.bind(this);
+       this.handleLatitudeChange=this.handleLatitudeChange.bind(this);
+       this.handleLongitudeChange=this.handleLongitudeChange.bind(this);
+       this.handleCountryChange=this.handleCountryChange.bind(this);
+       this.handleSubmitChange=this.handleStateChange.bind(this);
+        
+    }
+
+    
+
+    handleSubmitChange(event) {
+    
+        event.preventDefault();
+
+       
+
+            request.post("http://localhost:9000/RegCrime")
+                .send({ day: this.state.day,mon:this.state.mon, year: this.state.year,  type: this.state.type, gender: this.state.gender,  gender1: this.state.gender1,
+                    address: this.state.address, city: this.state.city,  state: this.state.state, lat: this.state.lat,  lng: this.state.lng,
+                    country: this.state.country})
+                .then(
+                (response) => {
+                    // response.body will be the returned data from your play app, which is an array of objects
+                    // I kept the data as object with "place" as the key, and [lat,longs] as value.
+                    // following code converts array of objects into the format which my component is accepting.
+                    console.log("response is ok");
+                });
+        
+       
+
+    }
+    
+
+    handleDayChange(event) {
+        this.setState({
+            day: event.target.value,
+        });
+       
+    }
+
+    handleMonthChange(event) {
+        this.setState({
+            mon: event.target.value,
+        });
+       
+    }
+
+    handleYearChange(event) {
+        this.setState({
+            year: event.target.value,
+        });
+       
+    }
+
+    handleTypeChange(event) {
+        this.setState({
+            type: event.target.value,
+        });
+       
+    }
+
+    handleVictimChange(event) {
+        this.setState({
+            gender: event.target.value,
+        });
+       
+    }
+
+    handleCriminalChange(event) {
+        this.setState({
+            gender1
+            : event.target.value,
+        });
+       
+    }
+    
+    handleAddressChange(event) {
+        this.setState({
+            address: event.target.value,
+        });
+       
+    }
+
+    handleCityChange(event) {
+        this.setState({
+            city: event.target.value,
+        });
+       
+    }
+
+    handleStateChange(event) {
+        this.setState({
+            state: event.target.value,
+        });
+       
+    }
+
+    handleLatitudeChange(event) {
+        this.setState({
+            lat: event.target.value,
+        });
+       
+    }
+
+    handleLongitudeChange(event) {
+        this.setState({
+            lng: event.target.value,
+        });
+       
+    }
+
+
+
+    handleCountryChange(event) {
+        this.setState({
+            country: event.target.value,
+        });
+       
+    }
+
+
+
     onMapCreated(map) {
         map.setOptions({
           disableDefaultUI: true
@@ -54,31 +204,19 @@ class RegCrime extends React.Component {
             
              <h3>CRIME REGISTRATION FORM</h3>
              
+             <form autoComplete="off" onSubmit={this.handleSubmitChange}>
               
-             <table align="center" cellpadding = "10">
+             <table align="center" >
               
             
-             <tr>
-             <td>FIRST NAME</td>
-             <td><input type="text" name="First_Name" maxlength="30"/>
-          
-             </td>
-             </tr>
-              <br/>
-    
-             <tr>
-             <td>LAST NAME</td>
-             <td><input type="text" name="Last_Name" maxlength="30"/>
-          
-             </td>
-             </tr>
+            
               
              <br/>
              <tr>
              <td>DATE OF CRIME</td>
               
              <td>
-             <select name="Birthday_day" id="Birthday_Day">
+             <select name="Birthday_day" id="Crime_Day" onChange={this.handleDayChange}>
              <option value="-1">Day:</option>
              <option value="1">1</option>
              <option value="2">2</option>
@@ -117,7 +255,7 @@ class RegCrime extends React.Component {
              <option value="31">31</option>
              </select>
               
-             <select id="Birthday_Month" name="Birthday_Month">
+             <select id="Birthday_Month" name="Crime_Month" onChange={this.handleMonthChange}>
              <option value="-1">Month:</option>
              <option value="January">Jan</option>
              <option value="February">Feb</option>
@@ -133,7 +271,7 @@ class RegCrime extends React.Component {
              <option value="December">Dec</option>
              </select>
               
-             <select name="Birthday_Year" id="Birthday_Year">
+             <select name="Birthday_Year" id="Crime_Year" onChange={this.handleYearChange}>
               
              <option value="-1">Year:</option>
              <option value="2012">2012</option>
@@ -178,7 +316,7 @@ class RegCrime extends React.Component {
              <br/>
              <tr>
              <td>Crime Type</td>
-             <td><input type="text" name="Crime_type" maxlength="100" /></td>
+             <td><input type="text" name="Crime_type"  id="Crime_type" maxlength="100" onChange={this.handleTypeChange}/></td>
              </tr>
               
           
@@ -188,31 +326,31 @@ class RegCrime extends React.Component {
              <tr>
              <td> VICTIM GENDER</td>
              <td>
-             Male <input type="radio" name="Gender" value="Male" />
-             Female <input type="radio" name="Gender" value="Female" />
-             Others <input type="radio" name="Gender" value="Other" />
+             Male <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Male" />
+             Female <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Female" />
+             Others <input type="radio" name="Gender" id="Gender" onChange={this.handleVictimChange} value="Other" />
              </td>
              </tr>
              <br/>
              <tr>
              <td> CRIMINAL GENDER</td>
              <td>
-             Male <input type="radio" name="Gender1" value="Male" />
-             Female <input type="radio" name="Gender1" value="Female" />
-             Others <input type="radio" name="Gender1" value="Other" />
+             Male <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Male" />
+             Female <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Female" />
+             Others <input type="radio" name="Gender1" id="Gender1" onChange={this.handleCriminalChange} value="Other" />
              </td>
              </tr>
               
              <br/>
              <tr>
              <td>DESCRIPTION OF CRIME <br /><br /><br /></td>
-             <td><textarea name="Address" rows="4" cols="30"></textarea></td>
+             <td><textarea name="Address" id="Address" rows="4" cols="30" onChange={this.handleAddressChange}></textarea></td>
              </tr>
              <br/>
             
              <tr>
              <td>CITY</td>
-             <td><input type="text" name="City" maxlength="30" />
+             <td><input type="text" name="City" id="City" maxlength="30" onChange={this.handleCityChange}/>
            
              </td>
              </tr>
@@ -223,22 +361,22 @@ class RegCrime extends React.Component {
           
              <tr>
              <td>STATE</td>
-             <td><input type="text" name="State" maxlength="30" />
+             <td><input type="text" name="State" id="State" maxlength="30" onChange={this.handleStateChange} />
        
              </td>
              </tr>
              <tr>
              <td>LATITUDE</td>
-             <td><input type="text" name="Country"  id= "latitude" value=""  readonly="readonly"/></td>
+             <td><input type="text" name="latitude"  id= "latitude" value="" onChange={this.handleLatitudeChange} readonly="readonly"/></td>
              </tr>
              <tr>
              <td>LONGITUDE</td>
-             <td><input type="text" name="Country"  id= "longitude" value=""  readonly="readonly"/></td>
+             <td><input type="text" name="longitude"  id= "longitude" value="" onChange={this.handleLongitudeChange} readonly="readonly"/></td>
              </tr>
              <br/>
              <tr>
              <td>COUNTRY</td>
-             <td><input type="text" name="Country" value="India" readonly="readonly" /></td>
+             <td><input type="text" name="Country" id="Country" value="India" readonly="readonly" onChange={this.handleCountryChange}/></td>
              </tr>
              <br/>
              <tr>
@@ -270,11 +408,11 @@ class RegCrime extends React.Component {
                 <br/>
                 <br/>
             
-             <td><button className="btn btn-primary" > <i class="glyphicon glyphicon-ok"></i>Submit</button></td>
+             <td><button className="btn btn-primary" id="submit"  > <i class="glyphicon glyphicon-ok"></i>Submit</button></td>
              </tr>
        
              </table>
-             
+             </form>
              </div>
              
             

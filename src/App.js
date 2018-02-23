@@ -13,6 +13,7 @@ import Map from './Map';
 import logo from './logo.svg';
 import Loginform from './Loginform';
 import RegCrime from './RegCrime';
+import SearchCrime from './SearchCrime';
 
 
 
@@ -25,6 +26,7 @@ class App extends Component {
       <Route path="/Register" exact  component={Registerform} />
       <Route path="/Login" exact  component={Loginform} />
       <Route path="/MapContainer" exact  component={RegCrime} />
+      <Route path="/SearchCrime" exact  component={SearchCrime} />
     </div>
     );
   }

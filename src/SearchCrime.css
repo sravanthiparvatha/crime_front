@@ -11,9 +11,15 @@
     }
     
     .fright {
-    float: right;
+    float: left;
         background:rgb(219, 104, 69);
         height: 4000px;
-        width: 90%;
+        width: 80%;
     }
+    .fright1 {
+        float: right;
+            background:rgb(138, 25, 25);
+            height: 4000px;
+            width: 10%;
+        }
     

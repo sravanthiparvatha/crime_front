@@ -13,7 +13,7 @@ render(){
     <div className="fright">    <CampMapContainer/>
 
     </div>
-    
+    <div className="fright1">  <h3>ANALYSIS</h3></div>
 </div>);
 }
 }

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './RegistrationForm.css';
-
-import request from 'superagent';
 import { Link } from 'react-router-dom';
+import request from 'superagent';
 
-class Loginform extends React.Component {
+
+class ResetPassword extends React.Component {
+	/*
 	 constructor(props) {
 		 super(props);
 
@@ -53,7 +54,65 @@ class Loginform extends React.Component {
 	
 			});
 	
+	}*/
+	constructor(props) {
+		super(props);
+	this.state = {
+		password: "",
+		confirmPassword: "",
+		
+	};
+	this.handleSubmit = this.handleSubmit.bind(this);
+	this.handlePasswordChange = this.handlePasswordChange.bind(this);
+	this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this);
+}
+
+handleSubmit(event) {
+
+	event.preventDefault();
+
+	this.setState({ value: event.target.value });
+	
+	var password = document.getElementById('password').value;
+	var confirmPassword = document.getElementById('confirmPassword').value;
+
+	if (password === confirmPassword) {
+
+		request
+			.post("http://10.10.200.22:9000/users/ResetPassword")
+			.send({  password: password,token:this.props.token})
+			.then(
+			(response) => {
+				// response.body will be the returned data from your play app, which is an array of objects
+				// I kept the data as object with "place" as the key, and [lat,longs] as value.
+				// following code converts array of objects into the format which my component is accepting.
+				console.log("response is ok");
+				window.alert("password  changed sucessfully");
+				window.location.href="/login";
+			});
 	}
+	else {
+		//	console.log("nope");
+	  window.alert("Password and confirm password are not matching");
+	}
+console.log(this.props.token);
+}
+handlePasswordChange(event) {
+	this.setState({
+		password: event.target.value,
+	});
+}
+
+handleConfirmPasswordChange(event) {
+	this.setState({
+		confirmPassword: event.target.value,
+	});
+}
+
+
+
+
+
 	render() {
 	/*	return (
 
@@ -106,22 +165,11 @@ class Loginform extends React.Component {
 
 							<div className="login-form loginw3-agile">
 								<div className="agile-row">
-								 <h1><u>LOGIN</u></h1>
+								 <h1><u>Reset Password</u></h1>
 									<div className="login-agileits-top">
 										<form autoComplete="off" onSubmit={this.handleSubmit}>
 										<p>
-											Email id<br/>
-
-											<input type="email"
-												className="email"
-												id="email"
-												autoFocus
-												placeholder="Enter email id"
-												onChange={this.handleEmailChange}
-												value={this.state.email} required />
-													<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-												<br/><br/>
-											Password <div class="inner-addon left-addon">
+										Password <div class="inner-addon left-addon">
 											<i className="glyphicon glyphicon-lock"></i>
 											<input type="password"
 												className="password"
@@ -132,22 +180,28 @@ class Loginform extends React.Component {
 												placeholder="      Enter password"
 												onChange={this.handlePasswordChange}
 												value={this.state.password} />
-											   </div> 
-											   <small id="emailHelp" class="form-text text-muted">Forgot Password</small> &emsp; &emsp; 
+											   </div> <br/>
+													<small id="emailHelp" class="form-text text-muted">We'll never share your password  with anyone else.</small>
+												<br/><br/>
+											Confirm Password <div class="inner-addon left-addon">
+											<i className="glyphicon glyphicon-lock"></i>
+											<input type="password"
+												className="password"
+												id="password"
+												required pattern="^[A-Za-z0-9_.-@]*$"
+											   required minLength="6" maxLength="10"
+												autoFocus
+												placeholder="      Enter password"
+												onChange={this.handlePasswordChange}
+												value={this.state.password} />
+											   </div> <br/>
 											   
-												 <Link to='/ResetPassword' >Rest Password</Link>
-												 <br></br>
-											<label className="anim">
 											
-										<input type = "checkbox"/>&emsp;
-										Remember me?
-											   
-											</label>  &emsp; &emsp; 
-											
-											<br></br>
+										
+										
 											&emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-										   <button> <i class="glyphicon glyphicon-ok"></i>  LOGIN</button>    
-											
+										   <button> <i class="glyphicon glyphicon-ok"></i> CONFIRM</button>    
+										  
 									
 									
 									</p>
@@ -164,4 +218,4 @@ class Loginform extends React.Component {
 	}
 }
 
-export default Loginform;
+export default ResetPassword;

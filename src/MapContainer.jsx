@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './RegistrationForm.css';
+import './index.css';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import GoogleMapReact from 'google-map-react';
  
@@ -7,7 +9,9 @@ render() {
   const AnyReactComponent = ({ text }) => <div>{text}</div>;
   const style = {
     width: '100%',
-    height: '100%'
+    height: '100%', 
+    display: 'flex',
+    justifyContent: 'center' 
   }
   
     return (

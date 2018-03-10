@@ -5,6 +5,7 @@ import './App.css';
 import Header from './Header';
 import SlideImages from './SlideImages';
 import Explore from './Explore';
+
 import { Route } from 'react-router-dom';
 import Home from './Home';
 import CampMapContainer from './CampMapContainer';
@@ -15,6 +16,7 @@ import Loginform from './Loginform';
 import RegCrime from './RegCrime';
 import SearchCrime from './SearchCrime';
 import UserProfile from './UserProfile';
+import ResetPassword from './ResetPassword';
 
 
 
@@ -29,6 +31,7 @@ class App extends Component {
       <Route path="/MapContainer" exact  component={RegCrime} />
       <Route path="/SearchCrime" exact  component={SearchCrime} />
       <Route path="/User" exact  component={UserProfile} />
+      <Route path="/ResetPassword" exact  component={ResetPassword} />
     </div>
     );
   }

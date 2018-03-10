@@ -6,6 +6,7 @@ import Header from './Header';
 import SlideImages from './SlideImages';
 import AboutUs from './AboutUs';
 import Explore from './Explore';
+import ResetPassword from './ResetPassword';
 //import { Router,Route } from "react-router";
 //import logo from './logo.svg';
 //import Loginform from './Loginform';

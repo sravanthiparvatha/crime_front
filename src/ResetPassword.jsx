@@ -166,47 +166,38 @@ handleConfirmPasswordChange(event) {
 							<div className="login-form loginw3-agile">
 								<div className="agile-row">
 								 <h1><u>Reset Password</u></h1>
+								 
+<p>
 									<div className="login-agileits-top">
 										<form autoComplete="off" onSubmit={this.handleSubmit}>
-										<p>
-										Password <div class="inner-addon left-addon">
-											<i className="glyphicon glyphicon-lock"></i>
-											<input type="password"
-												className="password"
-												id="password"
-												required pattern="^[A-Za-z0-9_.-@]*$"
-											   required minLength="6" maxLength="10"
-												autoFocus
-												placeholder="      Enter password"
-												onChange={this.handlePasswordChange}
-												value={this.state.password} />
-											   </div> <br/>
-													<small id="emailHelp" class="form-text text-muted">We'll never share your password  with anyone else.</small>
-												<br/><br/>
-											Confirm Password <div class="inner-addon left-addon">
-											<i className="glyphicon glyphicon-lock"></i>
-											<input type="password"
-												className="password"
-												id="password"
-												required pattern="^[A-Za-z0-9_.-@]*$"
-											   required minLength="6" maxLength="10"
-												autoFocus
-												placeholder="      Enter password"
-												onChange={this.handlePasswordChange}
-												value={this.state.password} />
-											   </div> <br/>
-											   
+										
 											
-										
-										
+										<small id="emailHelp" class="form-text text-muted">Please enter the email address for your account. You will be emailed a link to reset your password. 
+
+</small><br/><br/>
+										Email address<br/>
+
+                                                <input type="email"
+                                                    className="email"
+                                                    id="email"
+                                                    autoFocus
+                                                    placeholder="Enter email id"
+                                                    onChange={this.handleEmailChange}
+                                                    value={this.state.email} required />
+													<br></br>
 											&emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-										   <button> <i class="glyphicon glyphicon-ok"></i> CONFIRM</button>    
-										  
+										   <button> <i class="glyphicon glyphicon-ok"></i> Send Reset Link.</button>    
+
+										  <br/><br/>
+										  <small id="emailHelp" class="form-text text-muted">  Please check your email account’s Spam or Junk folder to ensure the message was not filtered.
+</small>
+
+										 			
 									
-									
-									</p>
 									</form>
+									
 									</div>
+									</p>
 								</div>
 							</div>
 						</div>
